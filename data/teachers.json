@@ -1,0 +1,7 @@
+[
+  {"id":1,"name":"Prof. Dr. Ahmet Yılmaz","email":"ahmet.yilmaz@mdb.edu.tr","department":"Bilgisayar Mühendisliği"},
+  {"id":2,"name":"Doç. Dr. Fatma Kaya","email":"fatma.kaya@mdb.edu.tr","department":"Matematik"},
+  {"id":3,"name":"Dr. Öğr. Üyesi Mehmet Demir","email":"mehmet.demir@mdb.edu.tr","department":"Fizik"},
+  {"id":4,"name":"Arş. Gör. Ayşe Çelik","email":"ayse.celik@mdb.edu.tr","department":"Bilgisayar Mühendisliği"},
+  {"id":5,"name":"Prof. Dr. Hasan Şahin","email":"hasan.sahin@mdb.edu.tr","department":"Elektronik Mühendisliği"}
+]

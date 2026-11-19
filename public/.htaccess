@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Statik dosyalara doğrudan eriş (css, js, images)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Tüm diğer istekleri router'a yönlendir
+RewriteRule ^ router.php [L]

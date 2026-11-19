@@ -1,0 +1,6 @@
+[
+  {"id":1,"name":"D-101","capacity":40,"building":"D Blok","room_type":"classroom"},
+  {"id":2,"name":"D-102","capacity":35,"building":"D Blok","room_type":"classroom"},
+  {"id":3,"name":"LAB-1","capacity":30,"building":"A Blok","room_type":"lab"},
+  {"id":4,"name":"Amfi-1","capacity":120,"building":"B Blok","room_type":"auditorium"}
+]

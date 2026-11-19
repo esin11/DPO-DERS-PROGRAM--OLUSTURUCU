@@ -1,0 +1,5 @@
+[
+  {"id":1,"name":"BM-1A","grade":1,"student_count":30,"department":"Bilgisayar Mühendisliği"},
+  {"id":2,"name":"BM-2A","grade":2,"student_count":28,"department":"Bilgisayar Mühendisliği"},
+  {"id":3,"name":"EE-1A","grade":1,"student_count":25,"department":"Elektronik Mühendisliği"}
+]

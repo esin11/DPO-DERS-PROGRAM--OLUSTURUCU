@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MDB Fakültesi – Ders Programı Oluşturucu</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ══ ARKAPLAN BLOB'LARI (görseldeki renkli şekiller) ══ -->
+<div class="blob blob-orange"></div>
+<div class="blob blob-pink"></div>
+
+<div class="app-wrapper">
+
+  <!-- ════ HEADER ════ -->
+  <header class="app-header">
+    <h1>MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ</h1>
+    <h2>DERS PROGRAMI OLUŞTURUCU</h2>
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="schedule">📅 Program</button>
+      <button class="tab-btn" data-tab="teachers">👨‍🏫 Hocalar</button>
+      <button class="tab-btn" data-tab="courses">📚 Dersler</button>
+      <button class="tab-btn" data-tab="rooms">🏫 Derslikler</button>
+      <button class="tab-btn" data-tab="groups">👥 Gruplar</button>
+    </nav>
+  </header>
+
+  <!-- ════ PROGRAM SEKMESİ ════ -->
+  <section id="tab-schedule" class="tab-panel active">
+
+    <!-- Araç Çubuğu -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <button id="btn-generate" class="btn btn-primary">⚡ Program Oluştur</button>
+        <button id="btn-conflicts" class="btn btn-warning">⚠️ Çakışma Kontrol</button>
+        <button id="btn-print" class="btn btn-secondary">🖨️ Yazdır</button>
+      </div>
+      <div class="toolbar-right">
+        <label>Görünüm:
+          <select id="view-filter">
+            <option value="all">Tümü</option>
+            <option value="teacher">Hoca Bazlı</option>
+            <option value="group">Grup Bazlı</option>
+            <option value="room">Derslik Bazlı</option>
+          </select>
+        </label>
+        <select id="view-filter-id" style="display:none"></select>
+      </div>
+    </div>
+
+    <!-- Durum Mesajı -->
+    <div id="status-bar" class="status-bar hidden"></div>
+
+    <!-- Haftalık Çizelge (görseldeki tablo) -->
+    <div class="schedule-card">
+      <table class="schedule-table" id="schedule-table">
+        <thead>
+          <tr>
+            <th class="time-col">Saat</th>
+            <th>Pazartesi</th>
+            <th>Salı</th>
+            <th>Çarşamba</th>
+            <th>Perşembe</th>
+            <th>Cuma</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body">
+          <!-- JS ile doldurulur -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Alt Bilgi Kartları -->
+    <div class="bottom-cards">
+
+      <!-- Yapılacaklar -->
+      <div class="card todo-card">
+        <h3>Yapılacaklar</h3>
+        <div class="todo-grid">
+          <div class="todo-col" id="todo-col-1"></div>
+          <div class="todo-col" id="todo-col-2"></div>
+        </div>
+        <div class="todo-add">
+          <input type="text" id="todo-input" placeholder="Yeni görev ekle…"/>
+          <button id="todo-add-btn">+</button>
+        </div>
+      </div>
+
+      <!-- Önemli Notlar -->
+      <div class="card notes-card">
+        <h3>Önemli Notlar</h3>
+        <textarea id="notes-area" placeholder="Notlarınızı buraya yazın…"></textarea>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ ÇAKIŞMA MODAL ════ -->
+  <div id="conflict-modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>⚠️ Çakışma Raporu</h3>
+        <button class="modal-close" id="conflict-modal-close">✕</button>
+      </div>
+      <div id="conflict-list" class="conflict-list"></div>
+    </div>
+  </div>
+
+  <!-- ════ HOCA SEKMESİ ════ -->
+  <section id="tab-teachers" class="tab-panel">
+    <div class="toolbar">
+      <button class="btn btn-primary" id="btn-add-teacher">+ Hoca Ekle</button>
+    </div>
+    <div class="card">
+      <table class="data-table" id="teacher-table">
+        <thead><tr><th>#</th><th>Ad Soyad</th><th>E-posta</th><th>Bölüm</th><th>İşlem</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════ DERS SEKMESİ ════ -->
+  <section id="tab-courses" class="tab-panel">
+    <div class="toolbar">
+      <button class="btn btn-primary" id="btn-add-course">+ Ders Ekle</button>
+    </div>
+    <div class="card">
+      <table class="data-table" id="course-table">
+        <thead><tr><th>Kod</th><th>Ders Adı</th><th>Hoca</th><th>Grup</th><th>Saat/Hafta</th><th>Tür</th><th>İşlem</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════ DERSLİK SEKMESİ ════ -->
+  <section id="tab-rooms" class="tab-panel">
+    <div class="toolbar">
+      <button class="btn btn-primary" id="btn-add-room">+ Derslik Ekle</button>
+    </div>
+    <div class="card">
+      <table class="data-table" id="room-table">
+        <thead><tr><th>#</th><th>Ad</th><th>Kapasite</th><th>Bina</th><th>Tür</th><th>İşlem</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════ GRUP SEKMESİ ════ -->
+  <section id="tab-groups" class="tab-panel">
+    <div class="toolbar">
+      <button class="btn btn-primary" id="btn-add-group">+ Grup Ekle</button>
+    </div>
+    <div class="card">
+      <table class="data-table" id="group-table">
+        <thead><tr><th>#</th><th>Grup Adı</th><th>Sınıf</th><th>Öğrenci Sayısı</th><th>Bölüm</th><th>İşlem</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════ GENEL FORM MODAL ════ -->
+  <div id="form-modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="form-modal-title">Form</h3>
+        <button class="modal-close" id="form-modal-close">✕</button>
+      </div>
+      <form id="entity-form" autocomplete="off"></form>
+    </div>
+  </div>
+
+</div><!-- /.app-wrapper -->
+
+<script src="js/api.js"></script>
+<script src="js/schedule.js"></script>
+<script src="js/teachers.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/rooms.js"></script>
+<script src="js/groups.js"></script>
+<script src="js/todo.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

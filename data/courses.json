@@ -1,0 +1,14 @@
+[
+  {"id":1, "code":"CSE101","name":"Programlamaya Giriş","teacher_id":1,"student_group_id":1,"weekly_hours":2,"required_capacity":30,"course_type":"theory"},
+  {"id":2, "code":"CSE102","name":"Programlama Lab",    "teacher_id":4,"student_group_id":1,"weekly_hours":2,"required_capacity":30,"course_type":"lab"},
+  {"id":3, "code":"MATH101","name":"Calculus I",        "teacher_id":2,"student_group_id":1,"weekly_hours":3,"required_capacity":30,"course_type":"theory"},
+  {"id":4, "code":"PHYS101","name":"Fizik I",           "teacher_id":3,"student_group_id":1,"weekly_hours":2,"required_capacity":30,"course_type":"theory"},
+  {"id":5, "code":"CSE201","name":"Veri Yapıları",      "teacher_id":1,"student_group_id":2,"weekly_hours":2,"required_capacity":28,"course_type":"theory"},
+  {"id":6, "code":"CSE202","name":"Algoritmalar",       "teacher_id":4,"student_group_id":2,"weekly_hours":2,"required_capacity":28,"course_type":"theory"},
+  {"id":7, "code":"MATH201","name":"Lineer Cebir",      "teacher_id":2,"student_group_id":2,"weekly_hours":2,"required_capacity":28,"course_type":"theory"},
+  {"id":8, "code":"CSE203","name":"Nesneye Yönelik Prog.","teacher_id":1,"student_group_id":2,"weekly_hours":2,"required_capacity":28,"course_type":"theory"},
+  {"id":9, "code":"EEE101","name":"Devre Teorisi",      "teacher_id":5,"student_group_id":3,"weekly_hours":2,"required_capacity":25,"course_type":"theory"},
+  {"id":10,"code":"EEE102","name":"Elektronik Temelleri","teacher_id":5,"student_group_id":3,"weekly_hours":2,"required_capacity":25,"course_type":"theory"},
+  {"id":11,"code":"MATH102","name":"Calculus II",        "teacher_id":2,"student_group_id":3,"weekly_hours":3,"required_capacity":25,"course_type":"theory"},
+  {"id":12,"code":"PHYS102","name":"Fizik II",           "teacher_id":3,"student_group_id":3,"weekly_hours":2,"required_capacity":25,"course_type":"theory"}
+]
